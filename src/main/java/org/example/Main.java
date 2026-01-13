@@ -103,12 +103,15 @@ public class Main {
     // OPCIÓN 2: COMER (Ejercicio 8)
     private static void comer() {
         if (saciedad < 10) {
-            saciedad += 5;
+            saciedad += 3; // Corregido: antes era 5, ahora es 3
             if (saciedad > 10) saciedad = 10;  // Limitar al máximo 10
             diversion -= 1;
             if (diversion < 0) diversion = 0;   // No valores negativos
 
             System.out.println("He comido. Saciedad ahora: " + saciedad + ", diversión: " + diversion);
+
+            // Corregido: Se nos olvidó mostrar el estado después de actualizar
+            mostrarEstado();
         } else {
             System.out.println("No tengo hambre");
         }
