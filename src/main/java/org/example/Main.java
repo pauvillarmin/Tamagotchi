@@ -100,4 +100,17 @@ public class Main {
         System.out.println("Diversión: " + diversion);
         System.out.println("========================");
     }
-} //Fin del programa
+    // OPCIÓN 2: COMER (Ejercicio 8)
+    private static void comer() {
+        if (saciedad < 10) {
+            saciedad += 5;
+            if (saciedad > 10) saciedad = 10;  // Limitar al máximo 10
+            diversion -= 1;
+            if (diversion < 0) diversion = 0;   // No valores negativos
+
+            System.out.println("He comido. Saciedad ahora: " + saciedad + ", diversión: " + diversion);
+        } else {
+            System.out.println("No tengo hambre");
+        }
+    }
+}
