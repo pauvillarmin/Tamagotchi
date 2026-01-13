@@ -100,4 +100,4 @@ public class Main {
         System.out.println("Diversión: " + diversion);
         System.out.println("========================");
     }
-}1
+} //Fin del programa
