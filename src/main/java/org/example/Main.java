@@ -27,6 +27,8 @@ public class Main {
                 jugar();
             } else if (opcion == 4) {
                 dormir();
+            } else if (opcion == 5) { // NUEVA OPCIÓN
+                darCaramelito();
             }
 
         } while (opcion != 0);
@@ -46,15 +48,16 @@ public class Main {
             System.out.println("2. Comer");
             System.out.println("3. Jugar");
             System.out.println("4. Dormir");
+            System.out.println("5. Dar caramelito"); // NUEVO
             System.out.println("0. Salir");
             System.out.print("Seleccione una opcion: ");
             opcion = teclado.nextInt();
 
-            if (opcion < 0 || opcion > 4) {
+            if (opcion < 0 || opcion > 5) {  //CAMBIADO DE 4 A 5
                 System.out.println("Opción no válida");
             }
 
-        } while (opcion < 0 || opcion > 4);
+        } while (opcion < 0 || opcion > 5);  // CAMBIADO DE 4 A 5
 
         return opcion;
     }
@@ -160,5 +163,20 @@ public class Main {
         } else {
             System.out.println("\nNo tengo sueño");
         }
+    }
+
+    // OPCIÓN 5: NUEVA FUNCIONALIDAD (Ejercicio 16)
+    private static void darCaramelito() {
+        System.out.println("\n[Acción] ¡Le das un caramelo! Está eufórico.");
+
+        diversion = 10; // Sube la diversión al máximo
+
+        saciedad -= 1;  // Baja un poco la saciedad (hambre)
+        if (saciedad < 0) saciedad = 0;
+
+        energia -= 1;   // El subidón de azúcar cansa un poco
+        if (energia < 0) energia = 0;
+
+        mostrarEstado();
     }
 }
