@@ -15,11 +15,16 @@ public class Main {
         int opcion;
 
         do {
-            opcion = menuPrincipal(); // Llama al menú
+            opcion = menuPrincipal();
 
-            // Ejercicio 7: Implementar la opción 1
             if (opcion == 1) {
                 mostrarEstado();
+            }
+            // NUEVO: Llamadas a los métodos que has creado
+            else if (opcion == 2) {
+                comer();
+            } else if (opcion == 3) {
+                jugar();
             }
 
         } while (opcion != 0);
@@ -114,6 +119,25 @@ public class Main {
             mostrarEstado();
         } else {
             System.out.println("No tengo hambre");
+        }
+    }
+    // OPCIÓN 3: JUGAR (Ejercicio 10)
+    private static void jugar() {
+        if (diversion < 10) {
+            // Aumentar diversión en 3 (máximo 10)
+            diversion += 3;
+            if (diversion > 10) {
+                diversion = 10;
+            }
+
+            // Disminuir saciedad y energía en 1
+            saciedad -= 1;
+            energia -= 1;
+
+            // Mostrar el estado después de jugar
+            mostrarEstado();
+        } else {
+            System.out.println("Ahora no me apetece jugar");
         }
     }
 }
