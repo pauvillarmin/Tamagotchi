@@ -107,55 +107,58 @@ public class Main {
         System.out.println("Diversión: " + diversion);
         System.out.println("========================");
     }
-    // OPCIÓN 2: COMER (Ejercicio 8)
+    // OPCIÓN 2: COMER (Balance ajustado)
     private static void comer() {
         if (saciedad < 10) {
-            saciedad += 3; // Corregido: antes era 5, ahora es 3
-            if (saciedad > 10) saciedad = 10;  // Limitar al máximo 10
-            diversion -= 1;
-            if (diversion < 0) diversion = 0;   // No valores negativos
+            saciedad += 2;          // Comer sube saciedad pero no tanto
+            if (saciedad > 10) saciedad = 10;
+
+            diversion -= 1;         // Comer baja un poco la diversión
+            if (diversion < 0) diversion = 0;
 
             System.out.println("He comido. Saciedad ahora: " + saciedad + ", diversión: " + diversion);
 
-            // Corregido: Se nos olvidó mostrar el estado después de actualizar
             mostrarEstado();
         } else {
             System.out.println("No tengo hambre");
         }
     }
-    // OPCIÓN 3: JUGAR (Ejercicio 10)
+
+    // OPCIÓN 3: JUGAR (Balance ajustado)
     private static void jugar() {
         if (diversion < 10) {
-            // Aumentar diversión en 3 (máximo 10)
-            diversion += 3;
-            if (diversion > 10) {
-                diversion = 10;
-            }
+            diversion += 3;          // Jugar sube diversión
+            if (diversion > 10) diversion = 10;
 
-            // Disminuir saciedad y energía en 1
-            saciedad -= 1;
-            energia -= 1;
+            saciedad -= 2;           // Jugar gasta algo de saciedad
+            if (saciedad < 0) saciedad = 0;
 
-            // Mostrar el estado después de jugar
+            energia -= 1;            // Jugar gasta algo de energía
+            if (energia < 0) energia = 0;
+
+            System.out.println("\n[Acción] ¡Te has divertido jugando!");
             mostrarEstado();
         } else {
-            System.out.println("Ahora no me apetece jugar");
+            System.out.println("\nAhora no me apetece jugar");
         }
     }
-    //OPCIÓN 4: DORMIR (Ejercicio 11)
+
+    // OPCIÓN 4: DORMIR (Balance ajustado)
     private static void dormir() {
         if (energia < 10) {
-            energia += 3;
-            if (energia > 10) {
-                energia = 10;
-            }
+            energia += 4;            // Dormir recupera más energía
+            if (energia > 10) energia = 10;
 
-            saciedad -= 3;
-            diversion -= 2;
+            saciedad -= 2;           // Dormir consume algo de comida
+            if (saciedad < 0) saciedad = 0;
 
+            diversion -= 1;          // Dormir gasta un poco de diversión
+            if (diversion < 0) diversion = 0;
+
+            System.out.println("\n[Acción] El Tamagotchi ha dormido un poco.");
             mostrarEstado();
         } else {
-            System.out.println("No tengo sueño");
+            System.out.println("\nNo tengo sueño");
         }
     }
 }
