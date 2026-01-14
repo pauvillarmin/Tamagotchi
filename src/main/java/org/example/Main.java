@@ -25,6 +25,8 @@ public class Main {
                 comer();
             } else if (opcion == 3) {
                 jugar();
+            } else if (opcion == 4) {
+                dormir();
             }
 
         } while (opcion != 0);
@@ -138,6 +140,22 @@ public class Main {
             mostrarEstado();
         } else {
             System.out.println("Ahora no me apetece jugar");
+        }
+    }
+    //OPCIÓN 4: DORMIR (Ejercicio 11)
+    private static void dormir() {
+        if (energia < 10) {
+            energia += 3;
+            if (energia > 10) {
+                energia = 10;
+            }
+
+            saciedad -= 3;
+            diversion -= 2;
+
+            mostrarEstado();
+        } else {
+            System.out.println("No tengo sueño");
         }
     }
 }
